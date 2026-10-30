@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0b">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+
+    <meta
+        name="description"
+        content="Barbearia Rei's em Mangabeira, João Pessoa. Agende seu horário."
+    >
+
+    <title>Barbearia Rei's | Agendamento</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+        defer
+    ></script>
+
+    <script src="script.js" defer></script>
+    <script src="admin.js" defer></script>
+    <script src="cinema.js" defer></script>
+    <script src="animacoes.js" defer></script>
+</head>
+
+<body>
+    <div id="reisIntro" class="reis-intro" aria-hidden="true">
+      <div class="reis-intro-inner"><span class="reis-intro-crown">♛</span><strong>BARBEARIA <em>REI’S</em></strong><span class="reis-intro-line"></span></div>
+    </div>
+
+    <!-- CABEÇALHO -->
+    <header class="topbar">
+
+        <a class="brand" href="#inicio">
+            <span class="crown">♛</span>
+
+            <span>
+                BARBEARIA
+                <strong>REI'S</strong>
+            </span>
+        </a>
+
+        <button
+            type="button"
+            id="menuToggle"
+            class="menu-toggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <nav id="nav">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#localizacao">Localização</a>
+
+            <a href="#agendamento" class="nav-cta">
+                AGENDAR HORÁRIO ↗
+            </a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- INÍCIO -->
+        <section class="hero" id="inicio">
+
+            <div class="hero-photo"></div>
+            <div class="hero-overlay"></div>
+            <div class="reis-crown-scene" aria-hidden="true">
+                <div class="reis-crown-3d"><span>♛</span></div>
+            </div>
+
+            <div class="container hero-content">
+
+                <p class="eyebrow">
+                    MANGABEIRA · JOÃO PESSOA
+                </p>
+
+                <h1>
+                    ESTILO DE <em>REI.</em><br>
+                    ATITUDE DE <em>VERDADE.</em>
+                </h1>
+
+                <p>
+                    Do clássico ao moderno. Cortes, barba e
+                    detalhes que fazem a diferença.
+                </p>
+
+                <div class="actions">
+
+                    <a href="#agendamento" class="btn primary">
+                        AGENDAR HORÁRIO ↗
+                    </a>
+
+                    <a href="#galeria" class="btn outline">
+                        VER NOSSOS TRABALHOS
+                    </a>
+
+                </div>
+
+                <div class="hero-bottom">
+                    <span>✦ PRECISÃO EM CADA DETALHE</span>
+                    <span>SEG — SÁB · 09H ÀS 20H</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FAIXA -->
+        <section class="strip">
+
+            <div class="container strip-inner">
+
+                <span>CORTE</span>
+                <b>✦</b>
+
+                <span>BARBA</span>
+                <b>✦</b>
+
+                <span>DEGRADÊ</span>
+                <b>✦</b>
+
+                <span>TRANÇAS</span>
+                <b>✦</b>
+
+                <span>ESTILO</span>
+
+            </div>
+
+        </section>
+
+        <!-- SOBRE -->
+        <section class="section about container" id="sobre">
+
+            <div class="about-img">
+
+                <img
+                    src="assets/foto-05.jpg"
+                    alt="Atendimento na Barbearia Rei's"
+                    loading="lazy"
+                >
+
+                <span class="photo-tag">
+                    A EXPERIÊNCIA REI'S
+                </span>
+
+            </div>
+
+            <div class="about-text">
+
+                <p class="eyebrow">
+                    MAIS QUE UM CORTE
+                </p>
+
+                <h2>
+                    SEU VISUAL.<br>
+                    <span>NOSSA ARTE.</span>
+                </h2>
+
+                <p>
+                    Na Barbearia Rei's, cada atendimento é uma
+                    oportunidade de valorizar seu estilo.
+                </p>
+
+                <p>
+                    Dos cortes clássicos aos modernos, o cuidado
+                    está em cada detalhe.
+                </p>
+
+                <a href="#servicos" class="text-link">
+                    CONHEÇA OS SERVIÇOS ↗
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- SERVIÇOS -->
+        <section class="section dark-section" id="servicos">
+
+            <div class="container">
+
+                <div class="section-head">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            O QUE FAZEMOS
+                        </p>
+
+                        <h2>
+                            SERVIÇOS
+                            <span>DE RESPEITO.</span>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="services">
+
+                    <article>
+                        <span class="service-no">01</span>
+
+                        <h3>CORTE MASCULINO</h3>
+
+                        <p>
+                            Cortes clássicos e modernos
+                            para todos os estilos.
+                        </p>
+
+                        <span class="service-icon">↗</span>
+                    </article>
+
+                    <article>
+                        <span class="service-no">02</span>
+
+                        <h3>DEGRADÊ E DESENHOS</h3>
+
+                        <p>
+                            Acabamentos e desenhos
+                            personalizados.
+                        </p>
+
+                        <span class="service-icon">↗</span>
+                    </article>
+
+                    <article>
+                        <span class="service-no">03</span>
+
+                        <h3>BARBA</h3>
+
+                        <p>
+                            Modelagem, acabamento e
+                            cuidados com a barba.
+                        </p>
+
+                        <span class="service-icon">↗</span>
+                    </article>
+
+                    <article>
+                        <span class="service-no">04</span>
+
+                        <h3>TRANÇAS</h3>
+
+                        <p>
+                            Tranças com personalidade
+                            e estilo.
+                        </p>
+
+                        <span class="service-icon">↗</span>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- GALERIA -->
+        <section
+            class="section gallery-section container"
+            id="galeria"
+        >
+
+            <div class="section-head">
+
+                <div>
+
+                    <p class="eyebrow">
+                        NOSSO TRABALHO
+                    </p>
+
+                    <h2>
+                        GALERIA <span>REI'S.</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="filters">
+
+                <button
+                    type="button"
+                    class="active"
+                    data-filter="todos"
+                >
+                    Todos
+                </button>
+
+                <button
+                    type="button"
+                    data-filter="cortes"
+                >
+                    Cortes
+                </button>
+
+                <button
+                    type="button"
+                    data-filter="barba"
+                >
+                    Barba
+                </button>
+
+                <button
+                    type="button"
+                    data-filter="trancas"
+                >
+                    Tranças
+                </button>
+
+            </div>
+
+            <div class="gallery-grid">
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="cortes"
+                    data-img="assets/foto-01.jpg"
+                >
+                    <img
+                        src="assets/foto-01.jpg"
+                        alt="Corte personalizado"
+                        loading="lazy"
+                    >
+                    <span>CORTE PERSONALIZADO</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="cortes"
+                    data-img="assets/foto-02.jpg"
+                >
+                    <img
+                        src="assets/foto-02.jpg"
+                        alt="Degradê"
+                        loading="lazy"
+                    >
+                    <span>DEGRADÊ</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="cortes"
+                    data-img="assets/foto-03.jpg"
+                >
+                    <img
+                        src="assets/foto-03.jpg"
+                        alt="Detalhes do corte"
+                        loading="lazy"
+                    >
+                    <span>DETALHES DO CORTE</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="barba"
+                    data-img="assets/foto-04.jpg"
+                >
+                    <img
+                        src="assets/foto-04.jpg"
+                        alt="Atendimento"
+                        loading="lazy"
+                    >
+                    <span>ATENDIMENTO</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="barba"
+                    data-img="assets/foto-05.jpg"
+                >
+                    <img
+                        src="assets/foto-05.jpg"
+                        alt="Barbeiro trabalhando"
+                        loading="lazy"
+                    >
+                    <span>BARBA</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="barba"
+                    data-img="assets/foto-06.jpg"
+                >
+                    <img
+                        src="assets/foto-06.jpg"
+                        alt="Acabamento de barba"
+                        loading="lazy"
+                    >
+                    <span>ACABAMENTO</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="barba"
+                    data-img="assets/foto-07.jpg"
+                >
+                    <img
+                        src="assets/foto-07.jpg"
+                        alt="Profissional atendendo"
+                        loading="lazy"
+                    >
+                    <span>NOSSA EQUIPE</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="trancas"
+                    data-img="assets/foto-08.jpg"
+                >
+                    <img
+                        src="assets/foto-08.jpg"
+                        alt="Tranças"
+                        loading="lazy"
+                    >
+                    <span>TRANÇAS</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="trancas"
+                    data-img="assets/foto-09.jpg"
+                >
+                    <img
+                        src="assets/foto-09.jpg"
+                        alt="Tranças personalizadas"
+                        loading="lazy"
+                    >
+                    <span>ESTILO</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="gallery-item"
+                    data-category="trancas"
+                    data-img="assets/foto-11.jpg"
+                >
+                    <img
+                        src="assets/foto-11.jpg"
+                        alt="Tranças artísticas"
+                        loading="lazy"
+                    >
+                    <span>TRANÇAS ARTÍSTICAS</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- AGENDAMENTO -->
+        <section class="section booking" id="agendamento">
+
+            <div class="container booking-layout">
+
+                <div class="booking-intro">
+
+                    <p class="eyebrow">
+                        RESERVE SEU ESTILO
+                    </p>
+
+                    <h2>
+                        AGENDE SEU<br>
+                        <span>HORÁRIO.</span>
+                    </h2>
+
+                    <p>
+                        Escolha seu serviço, profissional,
+                        data e horário.
+                    </p>
+
+                </div>
+
+                <form
+                    id="bookingForm"
+                    class="booking-form"
+                    novalidate
+                >
+
+                    <div class="wizard-header">
+                        <span>AGENDAMENTO</span>
+                        <span id="stepCounter">ETAPA 1 DE 3</span>
+                    </div>
+
+                    <div class="wizard-progress">
+                        <span id="progressFill"></span>
+                    </div>
+
+                    <!-- ETAPA 1 -->
+                    <div
+                        class="wizard-step"
+                        data-step="1"
+                    >
+
+                        <h3>Escolha seu serviço</h3>
+
+                        <p class="step-hint">
+                            Abra uma categoria e selecione
+                            o serviço desejado.
+                        </p>
+
+                        <!-- CATEGORIAS NA NOVA ORDEM -->
+                        <div id="bookingCategories">
+
+                            <!-- 1. CORTE -->
+                            <details class="booking-category">
+
+                                <summary>Corte</summary>
+
+                                <div
+                                    class="booking-category-content"
+                                    id="categoryCorte"
+                                ></div>
+
+                            </details>
+
+                            <!-- 2. SERVIÇOS -->
+                            <details class="booking-category">
+
+                                <summary>Serviços</summary>
+
+                                <div
+                                    class="booking-category-content"
+                                    id="categoryServices"
+                                ></div>
+
+                            </details>
+
+                            <!-- 3. SPA -->
+                            <details class="booking-category">
+
+                                <summary>SPA</summary>
+
+                                <div
+                                    class="booking-category-content"
+                                    id="categorySpa"
+                                ></div>
+
+                            </details>
+
+                            <!-- 4. EPILAÇÃO -->
+                            <details class="booking-category">
+
+                                <summary>Epilação</summary>
+
+                                <div
+                                    class="booking-category-content"
+                                    id="categoryEpilacao"
+                                ></div>
+
+                            </details>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ETAPA 2 -->
+                    <div
+                        class="wizard-step"
+                        data-step="2"
+                        hidden
+                    >
+
+                        <h3>Escolha o profissional</h3>
+
+                        <p class="step-hint">
+                            Serviço escolhido:
+                            <strong
+                                class="selected-service-label"
+                            ></strong>
+                        </p>
+
+                        <div class="day-nav">
+
+                            <button
+                                type="button"
+                                id="dayPrev"
+                                aria-label="Dia anterior"
+                            >
+                                ❮
+                            </button>
+
+                            <span id="selectedDayLabel"></span>
+
+                            <button
+                                type="button"
+                                id="dayNext"
+                                aria-label="Próximo dia"
+                            >
+                                ❯
+                            </button>
+
+                        </div>
+
+                        <div id="professionalsContainer"></div>
+
+                    </div>
+
+                    <!-- ETAPA 3 -->
+                    <div
+                        class="wizard-step"
+                        data-step="3"
+                        hidden
+                    >
+
+                        <h3>Confirme seus dados</h3>
+
+                        <p class="step-hint">
+                            Confira o agendamento
+                            antes de confirmar.
+                        </p>
+
+                        <label for="clientName">
+                            Seu nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientName"
+                            name="clientName"
+                            placeholder="Digite seu nome"
+                            autocomplete="name"
+                            maxlength="100"
+                            required
+                        >
+
+                        <label for="clientWhatsapp">
+                            Seu WhatsApp com DDD
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="clientWhatsapp"
+                            name="clientWhatsapp"
+                            placeholder="(83) 99999-9999"
+                            inputmode="tel"
+                            autocomplete="tel"
+                            maxlength="16"
+                            required
+                        >
+
+                        <p class="step-hint">
+                            O WhatsApp será utilizado para
+                            preparar sua confirmação.
+                            O envio da mensagem é manual.
+                        </p>
+
+                        <input
+                            type="hidden"
+                            id="time"
+                            name="time"
+                        >
+
+                        <div
+                            class="booking-summary"
+                            id="bookingSummary"
+                        ></div>
+
+                    </div>
+
+                    <!-- MENSAGENS -->
+                    <p
+                        id="bookingFeedback"
+                        class="form-feedback"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+
+                    <!-- BOTÕES DAS ETAPAS -->
+                    <div class="wizard-actions">
+
+                        <button
+                            type="button"
+                            class="btn outline"
+                            id="prevStep"
+                            hidden
+                        >
+                            VOLTAR
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn primary"
+                            id="nextStep"
+                        >
+                            PRÓXIMO →
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn primary"
+                            id="finishBooking"
+                            hidden
+                        >
+                            CONFIRMAR AGENDAMENTO
+                        </button>
+
+                    </div>
+
+                    <!-- AGENDAMENTO CONFIRMADO -->
+                    <div
+                        id="bookingResult"
+                        class="booking-result"
+                        hidden
+                    >
+
+                        <h3>
+                            Agendamento confirmado! ✓
+                        </h3>
+
+                        <p>
+                            Seu horário foi registrado com
+                            sucesso. Use os botões abaixo
+                            para enviar as mensagens
+                            pelo WhatsApp.
+                        </p>
+
+                        <div id="confirmedBooking"></div>
+
+                        <div class="whatsapp-actions">
+
+                            <a
+                                id="whatsappCliente"
+                                class="btn primary"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                hidden
+                            >
+                                ENVIAR CONFIRMAÇÃO AO CLIENTE ↗
+                            </a>
+
+                            <a
+                                id="whatsappEquipe"
+                                class="btn outline"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                hidden
+                            >
+                                AVISAR EQUIPE ↗
+                            </a>
+
+                            <button
+                                type="button"
+                                id="copiarAvisoEquipe"
+                                class="btn outline"
+                                hidden
+                            >
+                                COPIAR AVISO DA EQUIPE
+                            </button>
+
+                        </div>
+
+                        <p class="step-hint">
+                            As mensagens só serão enviadas
+                            depois que alguém confirmar
+                            o envio no WhatsApp.
+                        </p>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- LOCALIZAÇÃO -->
+        <section
+            class="section container location"
+            id="localizacao"
+        >
+
+            <div>
+
+                <p class="eyebrow">
+                    ONDE ESTAMOS
+                </p>
+
+                <h2>
+                    VENHA PARA A
+                    <span>REI'S.</span>
+                </h2>
+
+                <p>
+                    Avenida Josefa Taveira, 2060<br>
+                    Mangabeira — João Pessoa/PB
+                </p>
+
+                <p>
+                    Segunda a sábado<br>
+                    09h às 20h
+                </p>
+
+                <a
+                    class="btn primary"
+                    href="https://www.google.com/maps/search/?api=1&query=Av.+Josefa+Taveira+2060+Mangabeira+Joao+Pessoa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    COMO CHEGAR ↗
+                </a>
+
+            </div>
+
+            <div class="map-wrap">
+
+                <iframe
+                    title="Localização da Barbearia Rei's"
+                    src="https://www.google.com/maps?q=Av.+Josefa+Taveira+2060+Mangabeira+Joao+Pessoa&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div>
+
+                    <h3>
+                        ♛ BARBEARIA REI'S
+                    </h3>
+
+                    <p>
+                        Seu estilo é nossa assinatura.
+                    </p>
+
+                </div>
+
+                <a
+                    href="https://www.instagram.com/barbearia_rei.s/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    INSTAGRAM ↗
+                </a>
+
+            </div>
+
+            <div class="reis-test-tools"><button type="button" id="openDemoAdmin">ACESSO ADMINISTRATIVO ↗</button><button type="button" id="installReisApp" hidden>INSTALAR NO CELULAR ↗</button></div>
+            <div class="footer-bottom">
+
+                <span>
+                    © <span id="year"></span>
+                    Barbearia Rei's.
+                </span>
+
+                <span>
+                    João Pessoa — PB
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Login administrativo com Supabase Auth e autorização validada no banco -->
+    <dialog id="demoAdmin" class="reis-admin-dialog" aria-labelledby="demoAdminTitle">
+      <div class="reis-admin-head"><div><p class="eyebrow">ÁREA RESTRITA</p><h2 id="demoAdminTitle">Administração Rei's</h2></div><button id="closeDemoAdmin" type="button" aria-label="Fechar painel">✕</button></div>
+      <p id="adminMessage" class="reis-admin-alert" role="status" aria-live="polite">Entre com sua conta administrativa.</p>
+      <form id="adminLogin" class="reis-admin-login">
+        <label>E-mail<input id="adminEmail" type="email" autocomplete="username" required></label>
+        <label>Senha<input id="adminPassword" type="password" autocomplete="current-password" required></label>
+        <button class="btn primary" type="submit">ENTRAR</button>
+      </form>
+      <section id="adminPanel" hidden>
+        <div class="reis-admin-toolbar">
+          <span id="adminUser"></span><button id="adminLogout" type="button" class="btn outline">SAIR</button>
+        </div>
+        <div class="reis-admin-controls">
+          <label>Data <input id="adminDate" type="date"></label>
+          <label>Profissional <select id="adminProfessional"><option value="">Todos</option></select></label>
+          <button id="adminRefresh" type="button" class="btn primary">ATUALIZAR</button>
+        </div>
+        <div class="reis-admin-stats"><article><strong id="adminCount">0</strong><span>Reservas exibidas</span></article><article><strong id="adminPros">0</strong><span>Profissionais</span></article><article><strong id="adminToday">0</strong><span>Reservas de hoje</span></article></div>
+        <section class="reis-dashboard" aria-labelledby="reisDashTitle">
+  <div class="reis-dash-head"><div><p class="eyebrow">VISÃO GERAL</p><h3 id="reisDashTitle">ESTATÍSTICAS DE AGENDAMENTOS</h3></div><label>Período do gráfico <select id="statsPeriod"><option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="90">Últimos 90 dias</option></select></label></div>
+  <div class="reis-kpis">
+    <article><span>HOJE</span><strong id="statsToday">0</strong></article>
+    <article><span>ESTA SEMANA</span><strong id="statsWeek">0</strong></article>
+    <article><span>ESTE MÊS</span><strong id="statsMonth">0</strong></article>
+    <article><span>NO PERÍODO</span><strong id="statsPeriodTotal">0</strong></article>
+  </div>
+  <div class="reis-dash-charts">
+    <section class="reis-chart-box"><h4>Reservas por dia</h4><div id="statsDays" class="reis-chart-bars" role="img" aria-label="Reservas por dia"></div></section>
+    <section class="reis-chart-box"><h4>Por profissional</h4><div id="statsProfessionals" class="reis-chart-list"></div></section>
+    <section class="reis-chart-box"><h4>Serviços mais agendados</h4><div id="statsServices" class="reis-chart-list"></div></section>
+  </div>
+  <p class="reis-dash-note">Estatísticas de reservas atualmente cadastradas. Agendamentos excluídos não são contabilizados; não representam faturamento nem atendimentos concluídos.</p>
+</section>
+        <div class="reis-admin-table"><table><thead><tr><th>Data</th><th>Horário</th><th>Cliente</th><th>Profissional</th><th>Serviço</th><th>Ação</th></tr></thead><tbody id="adminRows"></tbody></table></div>
+        <p class="reis-admin-foot">Excluir um agendamento libera o horário. Confirme os dados antes de excluir. A lista só é acessível a contas autorizadas pelo banco.</p>
+      </section>
+    </dialog>
+    <!-- VISUALIZAÇÃO DAS FOTOS -->
+    <dialog id="lightbox">
+
+        <button
+            type="button"
+            id="closeLightbox"
+            aria-label="Fechar imagem"
+        >
+            ✕
+        </button>
+
+        <img
+            id="lightboxImage"
+            alt="Foto ampliada da barbearia"
+        >
+
+    </dialog>
+
+</body>
+</html>
