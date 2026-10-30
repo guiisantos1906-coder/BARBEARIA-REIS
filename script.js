@@ -264,8 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevButton = document.getElementById("prevStep");
     const finishButton = document.getElementById("finishBooking");
 
-    const dayPrev = document.getElementById("dayPrev");
-    const dayNext = document.getElementById("dayNext");
+    const bookingDate = document.getElementById("bookingDate");
     const dayLabel = document.getElementById("selectedDayLabel");
 
     const lista = document.getElementById("professionalsContainer");
@@ -313,72 +312,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function atualizarData() {
-        if (dataSelecionada < hoje()) {
-            dataSelecionada = hoje();
-        }
+        const inicio = hoje();
+        const limite = hoje();
+        limite.setDate(limite.getDate() + 90);
 
+        if (dataSelecionada < inicio) dataSelecionada = inicio;
         if (dataSelecionada.getDay() === 0) {
+            dataSelecionada = new Date(dataSelecionada);
             dataSelecionada.setDate(dataSelecionada.getDate() + 1);
         }
-
-        dayLabel.textContent = dataSelecionada.toLocaleDateString(
-            "pt-BR",
-            {
-                weekday: "long",
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric"
-            }
-        );
-
-        const anterior = new Date(dataSelecionada);
-        anterior.setDate(anterior.getDate() - 1);
-
-        if (anterior.getDay() === 0) {
-            anterior.setDate(anterior.getDate() - 1);
-        }
-
-        dayPrev.disabled = anterior < hoje();
-
-        const limite = hoje();
-        limite.setDate(limite.getDate() + 90);
-
-        const proximo = new Date(dataSelecionada);
-        proximo.setDate(proximo.getDate() + 1);
-
-        if (proximo.getDay() === 0) {
-            proximo.setDate(proximo.getDate() + 1);
-        }
-
-        dayNext.disabled = proximo > limite;
+        bookingDate.min = dataISO(inicio);
+        bookingDate.max = dataISO(limite);
+        bookingDate.value = dataISO(dataSelecionada);
+        bookingDate.disabled = confirmando || confirmado;
+        dayLabel.textContent = dataSelecionada.toLocaleDateString("pt-BR", {
+            weekday: "long", day: "2-digit", month: "long", year: "numeric"
+        });
     }
 
-    async function mudarDia(direcao) {
-        if (confirmando || confirmado) return;
-
-        const nova = new Date(dataSelecionada);
-        nova.setDate(nova.getDate() + direcao);
-
-        if (nova.getDay() === 0) {
-            nova.setDate(nova.getDate() + direcao);
+    bookingDate.addEventListener("change", async () => {
+        if (confirmando || confirmado) {
+            atualizarData();
+            return;
         }
-
+        const valor = bookingDate.value;
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(valor)) {
+            atualizarData();
+            return;
+        }
+        const [ano, mes, dia] = valor.split("-").map(Number);
+        const nova = new Date(ano, mes - 1, dia, 12);
         const limite = hoje();
         limite.setDate(limite.getDate() + 90);
-
-        if (nova < hoje() || nova > limite) return;
-
+        if (dataISO(nova) !== valor || nova < hoje() || nova > limite || nova.getDay() === 0) {
+            mensagem("Escolha uma data válida de segunda a sábado, nos próximos 90 dias.");
+            atualizarData();
+            return;
+        }
         dataSelecionada = nova;
+        ++consultaAtual; // invalida consultas anteriores
         limparHorario();
         atualizarData();
-
-        if (profissionalSelecionado) {
-            await consultarHorarios();
-        }
-    }
-
-    dayPrev.addEventListener("click", () => mudarDia(-1));
-    dayNext.addEventListener("click", () => mudarDia(1));
+        if (profissionalSelecionado) await consultarHorarios();
+        else mensagem("Data escolhida. Selecione um profissional e um horário.");
+    });
 
     // =========================================
     // SELEÇÃO DOS HORÁRIOS
