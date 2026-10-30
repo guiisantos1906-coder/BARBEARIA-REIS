@@ -1684,5 +1684,241 @@ footer {
     .reis-admin-controls button {
         grid-column: auto;
     }
+    
+/* =====================================
+   BARBEARIA REI'S
+   PAINEL ADMINISTRATIVO MOBILE
+   ===================================== */
+
+.reis-admin-dialog {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.reis-admin-dialog * {
+    box-sizing: border-box;
+}
+
+.reis-admin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+#adminUser {
+    overflow-wrap: anywhere;
+    min-width: 0;
+    font-size: 13px;
+}
+
+.reis-admin-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: end;
+}
+
+.reis-admin-controls label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.reis-admin-controls input,
+.reis-admin-controls select {
+    width: 100%;
+    min-width: 0;
+    min-height: 45px;
+    padding: 10px;
+    background: #242424;
+    color: #fff;
+    border: 1px solid #756346;
+    border-radius: 8px;
+    color-scheme: dark;
+}
+
+.reis-admin-controls button {
+    grid-column: 1 / -1;
+    min-height: 45px;
+    border-radius: 8px;
+}
+
+.reis-admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.reis-admin-stats article {
+    min-width: 0;
+    border-radius: 10px;
+}
+
+.reis-admin-table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* CELULAR */
+
+@media screen and (max-width: 650px) {
+
+    .reis-admin-dialog {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        max-width: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+        margin: 0;
+        padding: 20px 16px 35px;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .reis-admin-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .reis-admin-head h2 {
+        font-size: 28px;
+        line-height: 1.15;
+    }
+
+    .reis-admin-head button {
+        min-width: 44px;
+        min-height: 44px;
+        flex-shrink: 0;
+    }
+
+    .reis-admin-alert {
+        margin: 16px 0;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .reis-admin-toolbar {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .reis-admin-toolbar button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .reis-admin-controls {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .reis-admin-controls label {
+        width: 100%;
+    }
+
+    .reis-admin-controls input,
+    .reis-admin-controls select,
+    .reis-admin-controls button {
+        width: 100%;
+        min-height: 46px;
+        font-size: 14px;
+    }
+
+    /* Indicadores em duas colunas */
+
+    .reis-admin-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin: 18px 0;
+    }
+
+    .reis-admin-stats article {
+        padding: 14px;
+        min-width: 0;
+    }
+
+    .reis-admin-stats article strong {
+        font-size: 28px;
+    }
+
+    .reis-admin-stats article span {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .reis-admin-stats article:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    /* Tabela com rolagem horizontal */
+
+    .reis-admin-table {
+        overflow-x: auto;
+        border-radius: 8px;
+    }
+
+    .reis-admin-table table {
+        min-width: 590px;
+    }
+
+    .reis-admin-table th,
+    .reis-admin-table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    /* Estatísticas adicionais */
+
+    .reis-dashboard,
+    .reis-dash-charts,
+    .reis-chart-box {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .reis-dash-head {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .reis-dash-head select {
+        max-width: 100%;
+        min-height: 44px;
+    }
+
+    .reis-kpis {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .reis-kpis article {
+        min-width: 0;
+        padding: 12px;
+    }
+
+    .reis-dash-charts {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+}
+
 }
 
