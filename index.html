@@ -24,14 +24,14 @@
         rel="stylesheet"
     >
 
-   <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
 
     <script
         src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
         defer
     ></script>
 
-    <script src="script.js" defer></script>
+    <script src="script.js?v=5" defer></script>
     <script src="admin.js" defer></script>
     <script src="cinema.js" defer></script>
     <script src="animacoes.js" defer></script>
@@ -599,26 +599,10 @@
                             ></strong>
                         </p>
 
-                        <div class="day-nav">
-
-                            <button
-                                type="button"
-                                id="dayPrev"
-                                aria-label="Dia anterior"
-                            >
-                                ❮
-                            </button>
-
-                            <span id="selectedDayLabel"></span>
-
-                            <button
-                                type="button"
-                                id="dayNext"
-                                aria-label="Próximo dia"
-                            >
-                                ❯
-                            </button>
-
+                        <div class="day-nav" style="display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:18px 0;">
+                            <label for="bookingDate" style="font-weight:600;">Escolha a data do agendamento</label>
+                            <input id="bookingDate" name="bookingDate" type="date" required aria-label="Data do agendamento" style="width:100%;min-width:0;min-height:48px;padding:12px;border:1px solid #8d744c;border-radius:8px;background:#242424;color:#fff;color-scheme:dark;font:inherit;box-sizing:border-box;">
+                            <small id="selectedDayLabel" aria-live="polite"></small>
                         </div>
 
                         <div id="professionalsContainer"></div>
