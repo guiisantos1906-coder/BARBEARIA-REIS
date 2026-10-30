@@ -1422,3 +1422,267 @@ footer {
 .reis-dash-note{font-size:12px;color:#b7b3ac;line-height:1.6}
 @media(max-width:600px){.reis-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.reis-dash-charts{grid-template-columns:1fr}.reis-chart-box:first-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){.reis-day-fill{transition:none}}
+
+/* =========================================
+   PAINEL ADMINISTRATIVO RESPONSIVO
+   BARBEARIA REI'S
+   ========================================= */
+
+.reis-admin-dialog {
+    box-sizing: border-box;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.reis-admin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 12px 0 16px;
+    min-width: 0;
+}
+
+#adminUser {
+    overflow-wrap: anywhere;
+    min-width: 0;
+    font-size: 13px;
+    color: #e2d9c8;
+}
+
+.reis-admin-toolbar button {
+    flex-shrink: 0;
+}
+
+.reis-admin-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.reis-admin-controls label,
+.reis-admin-login label {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+    color: #e0d8c8;
+    font-size: 13px;
+}
+
+.reis-admin-controls input,
+.reis-admin-controls select,
+.reis-admin-login input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 10px;
+    background: #242424;
+    color: #fff;
+    border: 1px solid #65553e;
+    border-radius: 8px;
+    font: inherit;
+    color-scheme: dark;
+}
+
+.reis-admin-controls button {
+    min-height: 46px;
+    border-radius: 8px;
+}
+
+.reis-admin-login {
+    display: grid;
+    gap: 14px;
+}
+
+.reis-admin-table {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+/* =========================================
+   CELULARES
+   ========================================= */
+
+@media (max-width: 650px) {
+
+    .reis-admin-dialog {
+        position: fixed;
+        inset: 0;
+        margin: 0;
+        width: 100vw;
+        max-width: none;
+        height: 100dvh;
+        max-height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        padding: 20px 16px 36px;
+        scrollbar-gutter: stable;
+    }
+
+    .reis-admin-head {
+        align-items: center;
+        gap: 10px;
+    }
+
+    .reis-admin-head h2 {
+        font-size: clamp(25px, 7vw, 32px);
+        line-height: 1.15;
+        margin: 0 0 10px;
+    }
+
+    .reis-admin-head .eyebrow {
+        margin-bottom: 9px;
+    }
+
+    .reis-admin-head button {
+        width: 46px;
+        height: 46px;
+        flex-shrink: 0;
+        font-size: 22px;
+        border-radius: 8px;
+    }
+
+    .reis-admin-alert {
+        font-size: 13px;
+        padding: 10px 12px;
+        margin: 14px 0;
+    }
+
+    .reis-admin-toolbar {
+        padding: 10px 0;
+        border-bottom: 1px solid #37312a;
+    }
+
+    .reis-admin-toolbar button {
+        padding: 11px 16px;
+        min-height: 44px;
+        font-size: 12px;
+    }
+
+    /* Filtros organizados */
+
+    .reis-admin-controls {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .reis-admin-controls button {
+        grid-column: 1 / -1;
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* Indicadores em duas colunas */
+
+    .reis-admin-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin: 15px 0;
+    }
+
+    .reis-admin-stats article {
+        min-width: 0;
+        padding: 13px 11px;
+        border-radius: 9px;
+    }
+
+    .reis-admin-stats article strong {
+        font-size: clamp(24px, 7vw, 31px);
+    }
+
+    .reis-admin-stats article span {
+        font-size: 11px;
+        line-height: 1.35;
+    }
+
+    .reis-admin-stats article:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+
+    /* Estatísticas */
+
+    .reis-dashboard {
+        margin: 20px 0;
+    }
+
+    .reis-dash-head {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .reis-dash-head h3 {
+        font-size: clamp(21px, 6vw, 26px);
+        line-height: 1.2;
+    }
+
+    .reis-dash-head label {
+        width: 100%;
+    }
+
+    .reis-dash-head select {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .reis-kpis {
+        gap: 9px;
+    }
+
+    .reis-kpis article {
+        padding: 12px;
+        min-width: 0;
+    }
+
+    .reis-kpis article strong {
+        font-size: 28px;
+    }
+
+    .reis-dash-charts {
+        gap: 10px;
+    }
+
+    .reis-chart-box {
+        padding: 13px;
+    }
+
+    .reis-chart-bars {
+        height: 115px;
+    }
+
+    /* Tabela de agendamentos */
+
+    .reis-admin-table table {
+        min-width: 590px;
+    }
+
+    .reis-admin-table th,
+    .reis-admin-table td {
+        padding: 11px 9px;
+    }
+}
+
+/* Celulares com telas menores */
+
+@media (max-width: 360px) {
+
+    .reis-admin-dialog {
+        padding-inline: 12px;
+    }
+
+    .reis-admin-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .reis-admin-controls button {
+        grid-column: auto;
+    }
+}
+
